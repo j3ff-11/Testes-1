@@ -120,15 +120,16 @@ texto(doc, "linkedin.com/in/jeferson-santos35  |  CNH: A/B (EAR)", after=2)
 # ── Resumo profissional ──────────────────────────────────────────────────────
 titulo_secao(doc, "Resumo Profissional", before=8)
 texto(doc,
-      "Profissional com dupla formação técnica pelo SENAI — Eletromecânica (1.500h) e "
-      "Administração (1.200h) — em transição estratégica para Tecnologia da Informação, "
-      "aprovado no Tecnólogo em Análise e Desenvolvimento de Sistemas (Facens). Na CBA, atuei "
-      "no Suporte de Operações da Sala de Fornos 7 com governança documental (Docnix), "
-      "monitoramento de indicadores em Power BI, suporte de TI (ServiceNow) e melhoria "
-      "contínua — e desenvolvi, por iniciativa própria, um sistema web de gestão de "
-      "ocorrências integrado a Power Automate e Excel Online, testado em piloto no setor. "
-      "Antes, fui promovido de Operador de Armazém Júnior a Pleno em menos de 12 meses. "
-      "Perfil analítico e autodidata, que transforma controles manuais em soluções digitais.",
+      "Profissional em transição para Tecnologia da Informação, com dupla formação técnica "
+      "pelo SENAI — Eletromecânica (1.500h) e Administração (1.200h) — e aprovado no "
+      "Tecnólogo em Análise e Desenvolvimento de Sistemas (Facens). Minha marca é "
+      "identificar dores reais da operação e transformá-las em soluções digitais: na CBA, "
+      "atuei no Suporte de Operações da Sala de Fornos 7 (governança documental no Docnix, "
+      "indicadores em Power BI, suporte de TI via ServiceNow) e criei, por iniciativa "
+      "própria, um sistema web de gestão de ocorrências testado em piloto no setor, "
+      "desenvolvido com apoio de IA e iteração contínua. Promovido de Operador de Armazém "
+      "Júnior a Pleno em menos de 12 meses na experiência anterior. Disciplina construída "
+      "em jornada dupla de trabalho e estudo, com foco em resultado mensurável.",
       after=3)
 
 # ── Experiência profissional ─────────────────────────────────────────────────
@@ -184,13 +185,14 @@ titulo_secao(doc, "Projetos de Tecnologia")
 
 texto(doc, [("Sistema de Gestão de Ocorrências de Fornos Industriais (projeto autoral)",
              True, False)], before=2, after=1)
-bullet(doc, "Aplicação web (PWA) criada por iniciativa própria e testada em caráter piloto "
-            "na rotina da Sala de Fornos 7 para registrar e analisar ocorrências de "
-            "exaustão: dashboards com Pareto, ranking de fornos críticos, alertas, modo TV "
-            "e resumo executivo.")
-bullet(doc, "Integração com Power Automate e Excel Online/OneDrive, exportação CSV/Excel e "
-            "relatório mensal automático por e-mail; publicação via GitHub e Cloudflare.",
-       after=4)
+bullet(doc, "Identifiquei uma dor real da operação — controles de ocorrências de exaustão "
+            "em lousa, sem histórico nem análise — e criei uma aplicação web (PWA) testada "
+            "em piloto na Sala de Fornos 7: dashboards com Pareto, ranking de fornos "
+            "críticos, alertas automáticos, modo TV e resumo executivo.")
+bullet(doc, "Ciclo completo do projeto: levantamento de requisitos com a operação, "
+            "desenvolvimento iterativo com apoio de IA, integração com Power Automate e "
+            "Excel Online/OneDrive, relatório mensal automático por e-mail e publicação "
+            "via GitHub e Cloudflare.", after=4)
 
 texto(doc, [("Sistema de Gestão de Estoque LIS (projeto acadêmico – SENAI)", True, False)],
       after=1)
@@ -235,7 +237,8 @@ bullet(doc, [("Dados e BI: ", True, False),
               "Microsoft Forms", False, False)])
 bullet(doc, [("Automação e desenvolvimento: ", True, False),
              ("Power Automate, Power Apps, HTML/JavaScript, GitHub, fundamentos de Python "
-              "e lógica de programação", False, False)])
+              "e desenvolvimento assistido por IA (especificação, revisão e iteração de "
+              "código)", False, False)])
 bullet(doc, [("Sistemas corporativos: ", True, False),
              ("SAP (consultas), ServiceNow, Docnix e WMS Blue Yonder", False, False)])
 bullet(doc, [("Melhoria contínua: ", True, False),

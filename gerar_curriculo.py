@@ -78,9 +78,10 @@ def bullet(doc, conteudo, after=2):
     return p
 
 
-def titulo_secao(doc, nome, before=9):
+def titulo_secao(doc, nome, before=8):
     """Título 14 pt negrito maiúsculas #1B365D com linha fina inferior #1B365D."""
     p = paragrafo(doc, before=before, after=5)
+    p.paragraph_format.keep_with_next = True
     formatar_run(p.add_run(nome.upper()), 14, bold=True, color=TITULO)
     pPr = p._element.get_or_add_pPr()
     pBdr = OxmlElement("w:pBdr")
@@ -115,21 +116,21 @@ p = paragrafo(doc, before=0, after=2)
 formatar_run(p.add_run("JEFERSON DOS SANTOS CARDOSO"), 24, bold=True, color=TITULO)
 
 texto(doc, "Mairinque – SP  |  (11) 95640-3941  |  jeferson20sc@gmail.com", after=1)
-texto(doc, "linkedin.com/in/jeferson-santos35  |  CNH: A/B (EAR)", after=2)
+texto(doc, "linkedin.com/in/jeferson-santos35  |  github.com/j3ff-11  |  CNH: A/B (EAR)",
+      after=2)
 
 # ── Resumo profissional ──────────────────────────────────────────────────────
 titulo_secao(doc, "Resumo Profissional", before=8)
 texto(doc,
       "Profissional em transição para Tecnologia da Informação, com dupla formação técnica "
-      "pelo SENAI — Eletromecânica (1.500h) e Administração (1.200h) — e aprovado no "
-      "Tecnólogo em Análise e Desenvolvimento de Sistemas (Facens). Minha marca é "
-      "identificar dores reais da operação e transformá-las em soluções digitais: na CBA, "
-      "atuei no Suporte de Operações da Sala de Fornos 7 (governança documental no Docnix, "
-      "indicadores em Power BI, suporte de TI via ServiceNow) e criei, por iniciativa "
-      "própria, um sistema web de gestão de ocorrências testado em piloto no setor, "
-      "desenvolvido com apoio de IA e iteração contínua. Promovido de Operador de Armazém "
-      "Júnior a Pleno em menos de 12 meses na experiência anterior. Disciplina construída "
-      "em jornada dupla de trabalho e estudo, com foco em resultado mensurável.",
+      "pelo SENAI (Eletromecânica e Administração) e aprovado no Tecnólogo em Análise e "
+      "Desenvolvimento de Sistemas (Facens). Destaco-me pela capacidade de identificar "
+      "problemas reais da operação e convertê-los em soluções digitais práticas: na CBA, "
+      "desenvolvi um sistema web (PWA) de gestão de ocorrências testado em piloto na Sala "
+      "de Fornos 7, integrado a Power Automate e Excel Online. Experiência em suporte de "
+      "TI (ServiceNow), Power BI e governança documental (Docnix). Promovido de Operador "
+      "Júnior a Pleno em menos de 12 meses na experiência anterior. Disciplinado e "
+      "autodidata, com aprendizado acelerado por projetos práticos e uso intensivo de IA.",
       after=3)
 
 # ── Experiência profissional ─────────────────────────────────────────────────
@@ -140,17 +141,17 @@ emprego(
     "Companhia Brasileira de Alumínio (CBA)", "Alumínio/SP",
     "Aprendiz – Suporte de Operações (Sala de Fornos 7 – ADM)", "jan/2025 – jun/2026",
     [
-        "Governança documental no sistema Docnix: pesquisa avançada, verificação de vigência "
-        "e distribuição de Procedimentos Operacionais, Padrões de Trabalho e FMEAs, com apoio "
-        "à integração de novos funcionários.",
+        "Governança documental no Docnix: pesquisa avançada, verificação de vigência e "
+        "distribuição de Procedimentos Operacionais, Padrões de Trabalho e FMEAs.",
         "Key User local de TI: chamados no ServiceNow, recuperação de computadores "
         "bloqueados por BitLocker e suporte a impressoras e acessos corporativos.",
         "Monitoramento diário de indicadores de segurança (DDS e abrangências) em Power BI e "
         "ObraSoft/Power Apps, com geração de relatórios e baixa de pendências.",
         "Inventário completo do almoxarifado do setor, com planilhas de controle de entrada "
         "e saída em Excel, consultas de saldo no SAP e gestão da distribuição de EPIs.",
-        "Melhoria de processo por iniciativa própria: substituição de anotações em lousa por "
-        "cadernos de checklist padronizados, criando histórico auditável para auditorias.",
+        "Melhoria de processos: substituí anotações em lousa por checklists padronizados "
+        "com histórico auditável — iniciativa que evoluiu para o sistema web descrito em "
+        "Projetos de Tecnologia.",
     ],
     before=2,
 )
@@ -163,8 +164,8 @@ emprego(
         "Promovido de Operador Júnior a Pleno em menos de 12 meses, em reconhecimento ao "
         "desempenho, à confiabilidade e à produtividade na operação.",
         "Operação de empilhadeiras (NR-11) e separação de cargas em câmaras frias a -25 °C "
-        "com coletor de dados e WMS Blue Yonder (picking por LPN e conferência de estoque), "
-        "além de expedição e carregamento de veículos em turno noturno de alto giro.",
+        "com coletor de dados e WMS Blue Yonder, além de expedição e carregamento de "
+        "veículos em turno noturno de alto giro.",
         "Capacitação contínua em paralelo ao turno: PCP (40h), Metrologia (60h), Excel "
         "Avançado (40h), Power BI (32h) e Python (30h).",
     ],
@@ -185,14 +186,19 @@ titulo_secao(doc, "Projetos de Tecnologia")
 
 texto(doc, [("Sistema de Gestão de Ocorrências de Fornos Industriais (projeto autoral)",
              True, False)], before=2, after=1)
-bullet(doc, "Identifiquei uma dor real da operação — controles de ocorrências de exaustão "
-            "em lousa, sem histórico nem análise — e criei uma aplicação web (PWA) testada "
-            "em piloto na Sala de Fornos 7: dashboards com Pareto, ranking de fornos "
-            "críticos, alertas automáticos, modo TV e resumo executivo.")
-bullet(doc, "Ciclo completo do projeto: levantamento de requisitos com a operação, "
-            "desenvolvimento iterativo com apoio de IA, integração com Power Automate e "
-            "Excel Online/OneDrive, relatório mensal automático por e-mail e publicação "
-            "via GitHub e Cloudflare.", after=4)
+bullet(doc, "Dor crítica identificada: controles manuais em lousa, sem histórico nem "
+            "análise. Desenvolvi e testei em piloto uma aplicação web (PWA) com dashboards "
+            "(Pareto, ranking de fornos críticos), alertas automáticos, modo TV e resumo "
+            "executivo.")
+bullet(doc, [("Responsabilidades: ", True, False),
+             ("levantamento de requisitos com a equipe, desenvolvimento iterativo com "
+              "apoio de IA (Claude, Copilot), integração Power Automate + Excel Online, "
+              "relatórios automáticos por e-mail e deploy via GitHub + Cloudflare.",
+              False, False)])
+bullet(doc, [("Resultado: ", True, False),
+             ("registros manuais substituídos por um sistema digital auditável e visual, "
+              "facilitando a priorização dos fornos críticos e a tomada de decisão.",
+              False, False)], after=4)
 
 texto(doc, [("Sistema de Gestão de Estoque LIS (projeto acadêmico – SENAI)", True, False)],
       after=1)
@@ -225,9 +231,7 @@ bullet(doc, "Caldeiraria Prática – AHCX Treinamentos / MJS Brasil (jan–jul/
             "conclusão)")
 bullet(doc, "NR-11 – Operação de Empilhadeira – SENAI (32h, 2023); reciclagens NR-11 – "
             "SuperFrio (2024)")
-bullet(doc, "Metrologia Aplicada à Mecânica (60h) e PCP (40h) – SENAI (2024)")
-bullet(doc, "Administração – Nova NETT (96h, 2024); Segurança no Trabalho – SENAI "
-            "(14h, 2023)", after=3)
+bullet(doc, "Metrologia Aplicada à Mecânica (60h) e PCP (40h) – SENAI (2024)", after=3)
 
 # ── Competências ─────────────────────────────────────────────────────────────
 titulo_secao(doc, "Competências")

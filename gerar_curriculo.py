@@ -126,7 +126,7 @@ texto(doc,
       "no Suporte de Operações da Sala de Fornos 7 com governança documental (Docnix), "
       "monitoramento de indicadores em Power BI, suporte de TI (ServiceNow) e melhoria "
       "contínua — e desenvolvi, por iniciativa própria, um sistema web de gestão de "
-      "ocorrências integrado a Power Automate e Excel Online, colocado em produção no setor. "
+      "ocorrências integrado a Power Automate e Excel Online, testado em piloto no setor. "
       "Antes, fui promovido de Operador de Armazém Júnior a Pleno em menos de 12 meses. "
       "Perfil analítico e autodidata, que transforma controles manuais em soluções digitais.",
       after=3)
@@ -182,18 +182,19 @@ emprego(
 # ── Projetos de tecnologia ───────────────────────────────────────────────────
 titulo_secao(doc, "Projetos de Tecnologia")
 
-texto(doc, [("CBA-EXAUST – Sistema de Gestão de Ocorrências de Fornos (autoral)",
+texto(doc, [("Sistema de Gestão de Ocorrências de Fornos Industriais (projeto autoral)",
              True, False)], before=2, after=1)
-bullet(doc, "Aplicação web (PWA) criada por iniciativa própria e colocada em produção para "
-            "registrar e analisar ocorrências de exaustão dos fornos da Sala de Fornos 7: "
-            "dashboards com Pareto, ranking de fornos críticos, alertas, modo TV e resumo "
-            "executivo.")
+bullet(doc, "Aplicação web (PWA) criada por iniciativa própria e testada em caráter piloto "
+            "na rotina da Sala de Fornos 7 para registrar e analisar ocorrências de "
+            "exaustão: dashboards com Pareto, ranking de fornos críticos, alertas, modo TV "
+            "e resumo executivo.")
 bullet(doc, "Integração com Power Automate e Excel Online/OneDrive, exportação CSV/Excel e "
             "relatório mensal automático por e-mail; publicação via GitHub e Cloudflare.",
        after=4)
 
-texto(doc, [("Sistema de Gestão de Estoque LIS (projeto SENAI)", True, False)], after=1)
-bullet(doc, "Site em HTML/JavaScript publicado no GitHub Pages e integrado ao Excel Online "
+texto(doc, [("Sistema de Gestão de Estoque LIS (projeto acadêmico – SENAI)", True, False)],
+      after=1)
+bullet(doc, "Site em HTML/JavaScript hospedado no GitHub Pages e integrado ao Excel Online "
             "via Power Automate: lançamentos de entrada e saída em tempo real, curva ABC, "
             "estoque de segurança, ponto de pedido e dashboards automáticos.", after=3)
 

@@ -111,23 +111,16 @@ texto(doc, [("Suporte de Operações | Administração | BI | Tecnologia | Logí
 # ── Resumo profissional ──────────────────────────────────────────────────────
 titulo_secao(doc, "Resumo Profissional", before=8)
 texto(doc,
-      "Profissional técnico em transição para Tecnologia da Informação, com formação pelo "
-      "SENAI em Eletromecânica e Administração, aprovado no Tecnólogo em Análise e "
-      "Desenvolvimento de Sistemas pela Facens. Experiência em ambiente industrial, "
-      "logística refrigerada, suporte operacional, governança documental, indicadores, "
-      "inventários, sistemas corporativos e melhoria de processos.",
-      after=3)
-texto(doc,
-      "Atuação na CBA com Docnix, ServiceNow, Power BI, Power Apps/ObraSoft, SAP, Excel e "
-      "suporte técnico local, contribuindo para organização documental, controle de "
-      "indicadores, gestão de materiais e digitalização de rotinas operacionais. Desenvolvi "
-      "e testei em piloto um sistema web/PWA para gestão de ocorrências de fornos "
-      "industriais, integrando Power Automate, Excel Online, GitHub e Cloudflare.",
-      after=3)
-texto(doc,
-      "Perfil disciplinado, hands-on e autodidata, com facilidade para aprender "
-      "ferramentas, resolver problemas práticos e transformar controles manuais em "
-      "soluções mais organizadas, rastreáveis e eficientes.",
+      "Profissional com formação técnica em Eletromecânica e Administração pelo SENAI, com "
+      "experiência em ambiente industrial, logística, operação, organização de processos, "
+      "registros, indicadores e melhoria contínua. Atuação na CBA com suporte às rotinas "
+      "operacionais da Sala de Fornos 7, governança documental, acompanhamento de "
+      "indicadores, controle de almoxarifado, SAP, Power BI, Power Apps, 5S e apoio à "
+      "padronização de processos. Experiência anterior como Operador de Armazém Júnior e "
+      "Pleno, com operação de empilhadeira, WMS, expedição, carregamento e trabalho em "
+      "ambiente de alto giro. Perfil disciplinado, responsável, hands-on e com facilidade "
+      "para aprender procedimentos, cumprir normas de segurança, qualidade e "
+      "produtividade.",
       after=3)
 
 # ── Experiência profissional ─────────────────────────────────────────────────
@@ -135,8 +128,8 @@ titulo_secao(doc, "Experiência Profissional")
 
 texto(doc, [("COMPANHIA BRASILEIRA DE ALUMÍNIO — CBA", True, False),
             ("  |  Alumínio/SP", False, False)], before=2, after=1)
-texto(doc, [("Aprendiz – Suporte de Operações / Administrativo Técnico — Sala de Fornos 7",
-             True, False)], after=1)
+texto(doc, [("Aprendiz Técnico em Administração – Suporte de Operações Industriais — "
+             "Sala de Fornos 7", True, False)], after=1)
 texto(doc, [("jan/2025 – jun/2026", False, True)], after=2)
 bullet(doc, "Atuação em suporte administrativo e operacional na Sala de Fornos 7, apoiando "
             "rotinas de produção, segurança, manutenção, documentação, indicadores e "

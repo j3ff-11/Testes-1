@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Gerador do currículo de Jeferson dos Santos Cardoso — versão final do usuário.
+Gerador do currículo de Jeferson dos Santos Cardoso — versão única 10/10.
 
-Especificação visual (padrão 10/10):
-- Fonte: Arial em todo o documento
-- Nome: 24 pt negrito | Títulos de seção: 14 pt negrito MAIÚSCULAS | Corpo: 11 pt
+Especificação visual:
+- Fonte: Arial | Nome: 24 pt negrito | Títulos: 14 pt negrito MAIÚSCULAS | Corpo: 11 pt
 - Espaçamento entre linhas: 1,15 | Margens: 2,0 cm | Alinhado à esquerda
 - Cores: fundo #FFFFFF, texto #333333, títulos #1B365D
 - Linha horizontal fina (#1B365D) abaixo de cada título de seção
-- Sem ícones, gráficos, colunas, tabelas ou caixas de texto
+- Sem ícones, gráficos, colunas, tabelas ou caixas de texto | 2 páginas exatas
 """
 
 from docx import Document
@@ -52,7 +51,7 @@ def paragrafo(doc, before=0, after=4, indent=None):
     return p
 
 
-def texto(doc, partes, before=0, after=4, indent=None, size=11):
+def texto(doc, partes, before=0, after=3, indent=None, size=11):
     p = paragrafo(doc, before=before, after=after, indent=indent)
     if isinstance(partes, str):
         partes = [(partes, False, False)]
@@ -75,7 +74,7 @@ def bullet(doc, conteudo, after=1):
 
 
 def titulo_secao(doc, nome, before=7):
-    p = paragrafo(doc, before=before, after=3)
+    p = paragrafo(doc, before=before, after=4)
     p.paragraph_format.keep_with_next = True
     formatar_run(p.add_run(nome.upper()), 14, bold=True, color=TITULO)
     pPr = p._element.get_or_add_pPr()
@@ -109,177 +108,137 @@ texto(doc, [("Suporte de Operações | Administração | BI | Tecnologia | Logí
              True, False)], after=2)
 
 # ── Resumo profissional ──────────────────────────────────────────────────────
-titulo_secao(doc, "Resumo Profissional", before=8)
+titulo_secao(doc, "Resumo Profissional", before=6)
 texto(doc,
-      "Profissional com formação técnica em Eletromecânica e Administração pelo SENAI, com "
+      "Profissional com formação técnica em Eletromecânica e Administração pelo SENAI, "
+      "aprovado no Tecnólogo em Análise e Desenvolvimento de Sistemas (Facens), com "
       "experiência em ambiente industrial, logística, operação, organização de processos, "
       "registros, indicadores e melhoria contínua. Atuação na CBA com suporte às rotinas "
       "operacionais da Sala de Fornos 7, governança documental, acompanhamento de "
-      "indicadores, controle de almoxarifado, SAP, Power BI, Power Apps, 5S e apoio à "
-      "padronização de processos. Experiência anterior como Operador de Armazém Júnior e "
-      "Pleno, com operação de empilhadeira, WMS, expedição, carregamento e trabalho em "
-      "ambiente de alto giro. Perfil disciplinado, responsável, hands-on e com facilidade "
-      "para aprender procedimentos, cumprir normas de segurança, qualidade e "
-      "produtividade.",
+      "indicadores, controle de almoxarifado, SAP, Power BI, Power Apps e 5S — além do "
+      "desenvolvimento autoral de um sistema web de gestão de ocorrências, testado em "
+      "piloto no setor. Experiência anterior como Operador de Armazém Júnior e "
+      "Pleno, com operação de empilhadeira, WMS, expedição e carregamento em ambiente de "
+      "alto giro. Perfil disciplinado, responsável, hands-on e com facilidade para aprender "
+      "procedimentos e cumprir normas de segurança, qualidade e produtividade.",
       after=3)
 
 # ── Experiência profissional ─────────────────────────────────────────────────
 titulo_secao(doc, "Experiência Profissional")
 
 texto(doc, [("COMPANHIA BRASILEIRA DE ALUMÍNIO — CBA", True, False),
-            ("  |  Alumínio/SP", False, False)], before=2, after=1)
+            ("  |  Alumínio/SP", False, False)], before=1, after=1)
 texto(doc, [("Aprendiz Técnico em Administração – Suporte de Operações Industriais — "
-             "Sala de Fornos 7", True, False)], after=1)
-texto(doc, [("jan/2025 – jun/2026", False, True)], after=2)
-bullet(doc, "Atuação em suporte administrativo e operacional na Sala de Fornos 7, apoiando "
-            "rotinas de produção, segurança, manutenção, documentação, indicadores e "
-            "controle de materiais.")
-bullet(doc, "Gestão e governança documental no Docnix, com pesquisa avançada, verificação "
-            "de vigência, organização e distribuição de Procedimentos Operacionais, "
-            "Padrões de Trabalho e FMEAs.")
-bullet(doc, "Atuação como apoio local de TI/Key User, com abertura e acompanhamento de "
-            "chamados no ServiceNow, suporte a acessos, impressoras, equipamentos "
-            "bloqueados por BitLocker e demandas técnicas do setor.")
-bullet(doc, "Monitoramento diário de indicadores de segurança e operação, incluindo DDS, "
-            "abrangências, pendências e registros em Power BI, Power Apps e ObraSoft.")
-bullet(doc, "Elaboração e atualização de planilhas de controle em Excel, apoiando "
-            "inventários, entrada e saída de materiais, distribuição de EPIs e consultas "
-            "de saldo no SAP.")
-bullet(doc, "Organização do almoxarifado do setor com aplicação de boas práticas de "
-            "controle, 5S, rastreabilidade de materiais e padronização de registros.")
-bullet(doc, "Identificação de falhas em controles manuais e criação de soluções digitais "
-            "para aumentar rastreabilidade, reduzir perda de informação e melhorar a "
-            "tomada de decisão.")
-bullet(doc, "Desenvolvimento de checklists e controles digitais que evoluíram para um "
-            "sistema web de gestão de ocorrências industriais, testado em piloto na área.",
-       after=3)
+             "Sala de Fornos 7", True, False),
+            ("  |  ", False, False), ("jan/2025 – jun/2026", False, True)], after=2)
+bullet(doc, "Gestão e governança documental no Docnix: pesquisa avançada, verificação de "
+            "vigência e distribuição de Procedimentos Operacionais, Padrões de Trabalho e "
+            "FMEAs.")
+bullet(doc, "Apoio local de TI/Key User: chamados no ServiceNow, suporte a acessos, "
+            "impressoras e equipamentos bloqueados por BitLocker.")
+bullet(doc, "Monitoramento diário de indicadores de segurança e operação (DDS, "
+            "abrangências e pendências) em Power BI, Power Apps e ObraSoft.")
+bullet(doc, "Planilhas de controle em Excel para inventários, entrada e saída de materiais "
+            "e distribuição de EPIs, com consultas de saldo no SAP e organização do "
+            "almoxarifado com 5S.")
+bullet(doc, "Identificação de falhas em controles manuais e criação de checklists e "
+            "controles digitais que evoluíram para um sistema web de gestão de "
+            "ocorrências, testado em piloto na área.", after=4)
 
 texto(doc, [("CEFRI / SUPERFRIO — Logística e Armazenagem Frigorificada", True, False),
             ("  |  Mairinque/SP", False, False)], after=1)
-texto(doc, [("Operador de Armazém Júnior → Pleno", True, False)], after=1)
-texto(doc, [("abr/2023 – jan/2025", False, True)], after=2)
+texto(doc, [("Operador de Armazém Júnior → Pleno", True, False),
+            ("  |  ", False, False), ("abr/2023 – jan/2025", False, True)], after=2)
 bullet(doc, "Promovido de Operador Júnior a Pleno em menos de 12 meses, em reconhecimento "
-            "ao desempenho, confiabilidade, produtividade e adaptação à rotina operacional.")
-bullet(doc, "Operação de empilhadeiras, conforme NR-11, em ambiente refrigerado de alta "
-            "demanda, com movimentação, separação, organização e expedição de cargas.")
-bullet(doc, "Atuação em câmaras frias de até -25 °C, realizando picking, conferência, "
-            "armazenagem, carregamento e suporte à operação logística em turno noturno.")
-bullet(doc, "Utilização de coletor de dados e sistema WMS Blue Yonder para controle de "
-            "movimentações, separação de pedidos, localização de produtos e apoio ao "
-            "fluxo de estoque.")
-bullet(doc, "Apoio à organização do armazém, controle de produtividade, segurança "
-            "operacional e cumprimento de procedimentos internos.")
-bullet(doc, "Capacitação contínua em paralelo ao trabalho, com cursos em Excel Avançado, "
-            "Power BI, Fundamentos de Python, PCP e Metrologia.", after=3)
+            "ao desempenho, confiabilidade e produtividade.")
+bullet(doc, "Operação de empilhadeiras (NR-11) em câmaras frias de até -25 °C, com "
+            "picking, conferência, armazenagem e carregamento em turno noturno de alta "
+            "demanda.")
+bullet(doc, "Utilização de coletor de dados e WMS Blue Yonder para controle de "
+            "movimentações, separação de pedidos e apoio ao fluxo de estoque.")
+bullet(doc, "Capacitação contínua em paralelo ao trabalho: Excel Avançado, Power BI, "
+            "Fundamentos de Python, PCP e Metrologia.", after=4)
 
 texto(doc, [("SUPERMERCADO SÃO ROQUE — Centro de Distribuição", True, False),
             ("  |  São Roque/SP", False, False)], after=1)
-texto(doc, [("Ajudante Operacional", True, False)], after=1)
-texto(doc, [("ago/2021 – jul/2022", False, True)], after=2)
-bullet(doc, "Apoio às rotinas de centro de distribuição, incluindo carregamento de "
-            "caminhões, paletização, organização de estoque, movimentação de mercadorias "
-            "e separação de cargas.")
-bullet(doc, "Controle de devolução de ativos, como caixas e materiais retornáveis, "
-            "auxiliando na organização e fluxo operacional do setor.", after=3)
+texto(doc, [("Ajudante Operacional", True, False),
+            ("  |  ", False, False), ("ago/2021 – jul/2022", False, True)], after=2)
+bullet(doc, "Carregamento de caminhões, paletização, organização de estoque, separação de "
+            "cargas e devolução de ativos retornáveis.", after=3)
 
 # ── Projetos de tecnologia ───────────────────────────────────────────────────
 titulo_secao(doc, "Projetos de Tecnologia")
 
 texto(doc, [("Sistema de Gestão de Ocorrências de Fornos Industriais — Projeto Autoral",
-             True, False)], before=2, after=2)
-bullet(doc, "Identificação de uma dor real da operação: controles manuais em lousa, baixa "
-            "rastreabilidade, ausência de histórico estruturado e dificuldade para análise "
-            "de recorrências.")
-bullet(doc, "Desenvolvimento de uma aplicação web PWA para registrar ocorrências, "
-            "acompanhar histórico, visualizar fornos críticos, gerar rankings, aplicar "
-            "análise de Pareto e apoiar decisões operacionais.")
-bullet(doc, "Integração com Power Automate e Excel Online, permitindo armazenamento dos "
-            "registros, automações e apoio à geração de relatórios.")
-bullet(doc, "Deploy e testes utilizando GitHub e Cloudflare, com foco em acesso simples, "
-            "visualização prática e uso em ambiente operacional.")
-bullet(doc, "Uso de desenvolvimento assistido por IA, com apoio de ferramentas como "
-            "Claude, Copilot e ChatGPT para estruturar telas, revisar lógica, melhorar "
-            "código e acelerar prototipagem.")
+             True, False)], before=1, after=2)
+bullet(doc, "Dor real identificada na operação: controles manuais em lousa, baixa "
+            "rastreabilidade e ausência de histórico estruturado para análise de "
+            "recorrências.")
+bullet(doc, "Desenvolvimento de aplicação web (PWA) para registrar ocorrências, "
+            "acompanhar histórico, visualizar fornos críticos, gerar rankings e aplicar "
+            "análise de Pareto.")
+bullet(doc, "Integração com Power Automate e Excel Online, deploy via GitHub/Cloudflare e "
+            "desenvolvimento assistido por IA (Claude, Copilot e ChatGPT).")
 bullet(doc, [("Resultado: ", True, False),
-             ("substituição de controles soltos por um modelo digital mais rastreável, "
-              "visual e organizado, facilitando a priorização de problemas e o "
-              "acompanhamento de ocorrências.", False, False)], after=3)
+             ("substituição de controles soltos por um modelo digital rastreável e "
+              "visual, testado em piloto, facilitando a priorização de problemas.",
+              False, False)], after=4)
 
 texto(doc, [("Sistema de Gestão de Estoque LIS — Projeto Acadêmico SENAI", True, False)],
       after=2)
-bullet(doc, "Desenvolvimento de site em HTML, JavaScript e GitHub Pages, integrado ao "
-            "Excel Online via Power Automate.")
-bullet(doc, "Criação de controles de entrada e saída, curva ABC, estoque de segurança, "
-            "ponto de pedido e dashboards automáticos.")
-bullet(doc, "Projeto voltado à melhoria da rastreabilidade, redução de controles manuais "
-            "e apoio à tomada de decisão em rotinas de estoque.", after=3)
+bullet(doc, "Site em HTML/JavaScript (GitHub Pages) integrado ao Excel Online via Power "
+            "Automate: curva ABC, estoque de segurança, ponto de pedido e dashboards em "
+            "tempo real.", after=3)
 
 # ── Formação acadêmica ───────────────────────────────────────────────────────
 titulo_secao(doc, "Formação Acadêmica")
 
 texto(doc, [("Tecnólogo em Análise e Desenvolvimento de Sistemas — Facens", True, False),
-            ("  |  Sorocaba/SP", False, False)], before=2, after=1)
-texto(doc, "Aprovado — início em agosto/2026", after=3)
-
-texto(doc, [("Técnico em Administração — SENAI", True, False)], after=1)
-texto(doc, "Carga horária: 1.200h  |  Conclusão: junho/2026", after=3)
-
-texto(doc, [("Técnico em Eletromecânica — SENAI Mairinque", True, False)], after=1)
-texto(doc, "Carga horária: 1.500h  |  Conclusão: junho/2025", after=3)
+            ("  |  início em agosto/2026", False, False)], before=1, after=2)
+texto(doc, [("Técnico em Administração — SENAI", True, False),
+            ("  |  1.200h — conclusão: junho/2026", False, False)], after=2)
+texto(doc, [("Técnico em Eletromecânica — SENAI Mairinque", True, False),
+            ("  |  1.500h — conclusão: junho/2025", False, False)], after=3)
 
 # ── Cursos e certificações ───────────────────────────────────────────────────
 titulo_secao(doc, "Cursos e Certificações")
 
-bullet(doc, "Excel Avançado — SENAI | 40h")
-bullet(doc, "Power BI — SENAI | 32h")
-bullet(doc, "Fundamentos do Python — SENAI | 30h")
-bullet(doc, "PCP — Planejamento e Controle da Produção — SENAI | 40h")
-bullet(doc, "Metrologia Aplicada à Mecânica — SENAI | 60h")
-bullet(doc, "Lógica de Programação — SENAI | 14h")
-bullet(doc, "Segurança Cibernética — SENAI | 4h")
-bullet(doc, "Desvendando a Indústria 4.0 — SENAI | 20h")
-bullet(doc, "Fundamentos da Inteligência Artificial — SENAI | 8h")
-bullet(doc, "Ética na Inteligência Artificial — SENAI | 4h")
-bullet(doc, "NR-11 — Operação de Empilhadeira — SENAI | 32h")
-bullet(doc, "Reciclagens NR-11 — SuperFrio")
-bullet(doc, "Caldeiraria Prática — AHCX Treinamentos / MJS Brasil | jan/2026 – jul/2026",
-       after=3)
+bullet(doc, "NR-11 — Operação de Empilhadeira — SENAI (32h, 2023); reciclagens — "
+            "SuperFrio (2024)")
+bullet(doc, "Metrologia Aplicada à Mecânica (60h) e PCP (40h) — SENAI (2024)")
+bullet(doc, "Caldeiraria Prática — AHCX Treinamentos / MJS Brasil (jan–jul/2026, em "
+            "conclusão)")
+bullet(doc, "Excel Avançado (40h), Power BI (32h) e Fundamentos do Python (30h) — SENAI "
+            "(2024)")
+bullet(doc, "Lógica de Programação (14h), Segurança Cibernética (4h), Indústria 4.0 "
+            "(20h), Fundamentos da IA (8h) e Ética na IA (4h) — SENAI (2025)", after=3)
 
 # ── Competências técnicas ────────────────────────────────────────────────────
 titulo_secao(doc, "Competências Técnicas")
 
-texto(doc, [("Tecnologia, Dados e Automação:", True, False)], before=2, after=1)
-texto(doc, "Excel Avançado, Power BI, Power Automate, Power Apps, HTML, JavaScript, "
-           "GitHub, GitHub Pages, Excel Online, Microsoft Forms, fundamentos de Python e "
-           "desenvolvimento assistido por IA.", after=3)
-
-texto(doc, [("Sistemas Corporativos:", True, False)], after=1)
-texto(doc, "ServiceNow, Docnix, SAP, WMS Blue Yonder e ObraSoft.", after=3)
-
-texto(doc, [("Administração e Operações:", True, False)], after=1)
-texto(doc, "Governança documental, relatórios, indicadores, inventários, controle de "
-           "materiais, gestão de EPIs, organização de almoxarifado, rotinas "
-           "administrativas e suporte operacional.", after=3)
-
-texto(doc, [("Logística e Indústria:", True, False)], after=1)
-texto(doc, "Operação de empilhadeira, NR-11, expedição, armazenagem, picking, "
-           "conferência, câmaras frias, PCP, metrologia, 5S, PDCA, Matriz GUT e gestão "
-           "visual.", after=3)
-
-texto(doc, [("Competências Comportamentais:", True, False)], after=1)
-texto(doc, "Disciplina, responsabilidade, foco em resolução de problemas, aprendizado "
-           "rápido, proatividade, resiliência, organização e mentalidade de melhoria "
-           "contínua.", after=3)
+bullet(doc, [("Tecnologia, Dados e Automação: ", True, False),
+             ("Excel Avançado, Power BI, Power Automate, Power Apps, HTML, JavaScript, "
+              "GitHub, fundamentos de Python e desenvolvimento assistido por IA.",
+              False, False)])
+bullet(doc, [("Sistemas Corporativos: ", True, False),
+             ("ServiceNow, Docnix, SAP, WMS Blue Yonder e ObraSoft.", False, False)])
+bullet(doc, [("Administração e Operações: ", True, False),
+             ("governança documental, relatórios, indicadores, inventários, controle de "
+              "materiais, gestão de EPIs e organização de almoxarifado.", False, False)])
+bullet(doc, [("Logística e Indústria: ", True, False),
+             ("operação de empilhadeira (NR-11), expedição, armazenagem, picking, câmaras "
+              "frias, PCP, metrologia, 5S, PDCA, Matriz GUT e gestão visual.",
+              False, False)])
+bullet(doc, [("Comportamentais: ", True, False),
+             ("disciplina, responsabilidade, proatividade, aprendizado rápido, resiliência "
+              "e mentalidade de melhoria contínua.", False, False)], after=3)
 
 # ── Informações adicionais ───────────────────────────────────────────────────
 titulo_secao(doc, "Informações Adicionais")
 
-bullet(doc, "CNH categorias A e B, com EAR.")
-bullet(doc, "Disponibilidade para início imediato.")
-bullet(doc, "Disponibilidade para turnos ou horário comercial.")
-bullet(doc, "Interesse em oportunidades nas áreas de suporte de TI, administração, BI, "
-            "logística, operações, manutenção, melhoria de processos e tecnologia.",
-       after=0)
+bullet(doc, "CNH categorias A e B (EAR); disponibilidade para início imediato, em turnos "
+            "ou horário comercial; interesse em suporte de TI, administração, BI, "
+            "logística, operações e melhoria de processos.", after=0)
 
 doc.save("Curriculo_Jeferson_dos_Santos_Cardoso.docx")
 print("OK: Curriculo_Jeferson_dos_Santos_Cardoso.docx gerado.")
